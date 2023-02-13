@@ -1,0 +1,45 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+---
+<!DOCTYPE html>
+<html lang="en">
+    <Header />
+	<head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+		<BaseHead title = {SITE_TITLE} description= {SITE_DESCRIPTION}/>
+		<style>
+            .project {
+                position: relative;
+            }
+
+            .image {
+                width: 100%;
+                border-radius: 10px;
+                margin:0;
+                padding:10px;
+            }
+
+		</style>
+	</head>
+
+	<body>
+<style>
+</style>
+        <div class = 'project'>
+            
+            <a href = "https://coda.io/@crystal-shuoqi-li/sign-into-coda">
+                <div class = 'image'><img src = 'codaButton.png' ></div>
+            </a>
+            <a href = "https://coda.io/@crystal-shuoqi-li/coda-my-stats-page">
+                <div class = 'image'><img src = 'myStats.png' ></div>
+            </a>
+        </div>
+		<Footer />
+	</body>
+</html>

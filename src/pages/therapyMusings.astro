@@ -1,0 +1,79 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<BaseHead title = {SITE_TITLE} description= {SITE_DESCRIPTION}/>
+	</head>
+	<body>
+		<Header />
+		<main>
+            <style>
+                a {
+                    display: flex;
+                    justify-content: center;
+                }
+                span {
+                    width:fit-content;
+                    background-color: rgba(132, 165, 157, 0.3)
+                }
+                span:hover {
+                    background-color: rgba(132, 165, 157, 0.5);
+                    border-radius: 2px;
+                    padding:0px;
+                    width:fit-content;
+                }
+                div {
+                    display: flex;
+                    justify-content:center;
+                }
+            </style>
+            <p>
+                I started doing therapy last year. I went through a couple of hard situations. One being my dad got involved in a Pig Butchering scam
+                and lost all of his money and sadly mine too. I went through a pretty long drawn out breakup. Realized I was queer. Moved to a new city.
+                Alot of things culminated into a lot of sleep less nights and mind spirals. I had some friends (A and J) who were doing therapy and suggested
+                I try it out. The process was just as hard as everybody said, but out of the hole came the brightness that is Tyler Hakomori. Below, are a couple
+                of quotes that Tyler has taught me. I hope if anybody else needed to hear some of these things they'll help you like they helped me. 
+            </p>
+            <a><img id = "animation" src="https://i.imgur.com/CbYjqBo.gif" title="source: imgur.com" onclick = "handleClick()"/></a>
+            <therapy-musings>
+                
+                <div>
+                    <span>My Therapist Tyler once said...</span>
+                </div>
+            </therapy-musings>
+            <script>
+                class TherapyMusings extends HTMLElement {
+                    constructor() {
+                        super();
+                        let counter = 0;
+                        const musings = [
+                            "The shitty thing - the event or situation in your life that's making you feel bad: that's the first arrow. That's the trigger event - the reason why you feel bad, not ok, unsettled or upset. As humans, we have a tendency to very quickly hunt for reasons as to why the shitty thing occured - and more often than not, we tend to turn blame on ourselves. There's something wrongw ith me, there's something defective, i'm unlovable, not good enough, I'm fallin short, I have failed somehow. And this - this self-blame, this turning inwards against oneself - this is the second arrow. This is the buddhist princi[ple of the second arrow.", 
+                            "Anger isn't bad. When you are angry that isn't bad. It's the response to that anger which people makes people think that being angry is bad. But in actuality it is just another feeling that your body is using to communicate with you.",
+                            "It is normal for you to feel this way. How you are feeling is completely valid.",
+                            "I am proud of you."];
+                        const musingSpan = document.querySelector('span');
+                        if (musingSpan) {
+                            musingSpan.addEventListener('click', () => {
+                                counter = (counter + 1) % musings.length;
+                                console.log(counter)
+                                musingSpan.textContent = musings[counter];
+                            })
+                        }
+                    }
+                }
+                customElements.define('therapy-musings', TherapyMusings)
+            </script>
+            
+			<head>
+				<BaseHead title = {SITE_TITLE} description= {SITE_DESCRIPTION}/>
+			</head>
+		</main>
+		<Footer />
+	</body>
+</html>

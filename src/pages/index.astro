@@ -1,0 +1,92 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<BaseHead title = {SITE_TITLE} description= {SITE_DESCRIPTION}/>
+	</head>
+	<body>
+		<style>
+			a {
+				color:inherit;
+				text-decoration: inherit;
+				background-color: rgba(132, 165, 157, 0.3);
+				&:hover {
+					background-color: rgba(132, 165, 157, 0.5)
+				}
+			}
+
+			span {
+				width:fit-content;
+			}
+			span:hover {
+				background-color: rgba(132, 165, 157, 0.3);
+				border-radius: 2px;
+				padding:0px;
+				width:fit-content;
+			}
+			div {
+				display: inline-flex;
+				background-color: rgba(132, 165, 157, 0.3)
+			}
+		</style>
+		<Header />
+		<main>
+			<h1>🍵 Hello, <person-greeting><div>peng you!</div></person-greeting></h1>
+			<script>
+                class PersonGreeting extends HTMLElement {
+                    constructor() {
+                        super();
+                        let counter = 0;
+                        const personTypes = [
+							"peng you",
+							"fellow traveller",
+							"friend",
+                           ];
+                        const personDiv = document.querySelector('div');
+                        if (personDiv) {
+                            personDiv.addEventListener('click', () => {
+                                counter = (counter + 1) % personTypes.length;
+                                personDiv.textContent = personTypes[counter];
+                            })
+                        }
+                    }
+                }
+                customElements.define('person-greeting', PersonGreeting)
+            </script>
+			<p>
+				
+			</p>
+			<p>
+				Come venture around my playground of thoughts. 
+				Slide through my projects. 
+				Touch the textures, feel the intent and thought behind every bit, squish around the ideas. 
+				Jump into my ball pen and unleash your inner child. 
+			</p>
+			<p>
+				I'm a SF transplant from Tampa, Florida. I find joy in exploring the outdoors, finding beauty 
+				in random third spaces on the internet, interactions where you're left with a shattered world view,
+				small coffee shops with wood panels and craft lattes, a good book that you can't put down (link to blog 
+				about books I'm reading), and getting to know you! 
+			</p>
+			<p>
+				I've worked at companies like PagerDuty, Amazon, Coda, and Delta airlines. I love small community 
+				environments where projects can be solved in a day and coffee chats are productive ways to build
+				cross team collaborations. Some Projects I've worked on that I'm proud of: Adding Custom Domain 
+				to Coda Docs, <a href = "https://community.coda.io/t/launched-earn-money-from-new-sign-ups-with-a-new-button/31003">a "Sign into Coda" Button</a>, Weekly emails for Coda stats. 
+
+			</p>
+
+			<head>
+				<BaseHead title = {SITE_TITLE} description= {SITE_DESCRIPTION}/>
+			</head>
+
+		</main>
+		<Footer />
+	</body>
+</html>
