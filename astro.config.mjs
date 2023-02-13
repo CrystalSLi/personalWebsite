@@ -6,5 +6,6 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://CrystalSLi.github.io',
+	base: '/personalWebsite',
 	integrations: [mdx(), sitemap()],
 });
